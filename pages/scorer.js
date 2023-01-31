@@ -79,14 +79,22 @@ export default function Score() {
             </div>
           </div>
         </div>
-        {/* <p className="text-center text-md">Over 1 of 8</p> */}
-        <p className="text-center text-md">Batting Pair 1 of 4</p>
-
-        <div className="flex flex-row place-content-center gap-3">
-          <p className="text-center text-md">This Over: 10</p>
-          <p className="text-center text-md">This Pair: 17</p>
+        <div className="flex flew-row place-content-between items-center mx-2">
+          <button className="border-solid border-2 border-black rounded-lg px-4 py-2">
+            {" "}
+            ←{" "}
+          </button>
+          <div>
+            <p className="text-center text-md">Batting Pair 1 of 4</p>
+            <div className="flex flex-row place-content-center gap-3">
+              <p className="text-center text-md">This Over: 10</p>
+              <p className="text-center text-md">This Pair: 17</p>
+            </div>
+          </div>
+          <button className="border-solid border-2 border-black rounded-lg px-4 py-2">
+            →{" "}
+          </button>
         </div>
-        {/* <p className="text-center text-xl">Total: 230</p> */}
       </div>
     </div>
   );
