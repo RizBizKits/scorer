@@ -2,7 +2,7 @@
 
 import useStorage from "@/utils/useStorage";
 
-export default function Score() {
+export default function Home() {
   const [mD, sD] = useStorage();
 
   return (
