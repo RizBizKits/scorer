@@ -1,7 +1,11 @@
 import { useSyncExternalStore } from "react";
 
 export default function useStorage() {
-  const matchData = useSyncExternalStore(subscribe, getServerSnapshot);
+  const matchData = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot
+  );
 
   return [
     matchData,
@@ -26,10 +30,14 @@ function subscribe(callback) {
   };
 }
 
-function getServerSnapshot() {
+function getSnapshot() {
   const entry = localStorage.getItem("storage");
   if (entry) {
     return JSON.parse(entry);
   }
   return null;
+}
+
+function getServerSnapshot() {
+  return true;
 }

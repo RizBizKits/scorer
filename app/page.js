@@ -2,7 +2,7 @@
 
 import useStorage from "@/utils/useStorage";
 
-export default function Home() {
+export default function Page() {
   const [mD, sD] = useStorage();
 
   return (
