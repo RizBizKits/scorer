@@ -24,10 +24,10 @@ export default function Page() {
           <div className="max-w-screen-xl mx-auto">
             <div className="mx-2">
               <div className="mb-4">
-                <p className="text-xl">Who's playing?</p>
+                <p className="text-xl">Who is playing?</p>
                 <p>
                   Start by entering details about the teams playing this match.
-                  Then, pick who's won the toss.
+                  Then, pick who has won the toss.
                 </p>
               </div>
               <UserBox title={"Team A"}></UserBox>
@@ -123,7 +123,7 @@ export default function Page() {
                 <p className="ball-count text-center">1.1 / 8</p>
               </div> */}
               {[...Array(OVERS).keys()].map((key) => (
-                <Over count={key}></Over>
+                <Over count={key} key={key}></Over>
               ))}
             </div>
             <div className="flex flew-row place-content-between items-center mx-2">
