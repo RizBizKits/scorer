@@ -9,15 +9,19 @@ export default function useStorage() {
 
   return [
     matchData,
+
     function setMatchData(data) {
       //getting it from UI to put into localStorage
       // for setting the val, you want to update localStorage directly
       // do json stringy to get string ver of data then u wanna do localS.setItem
       // to make sure evrything is remmebere, u want to trigger the sotrage event manually so then that's gonna update match data
-      const x = JSON.stringify(data);
-      if (x) {
+      if (data) {
+        const x = JSON.stringify(data);
         console.log(x);
-        return localStorage.setItem("storage", x);
+        const item = localStorage.setItem("storage", x);
+        // dispatching helps us re-render on the same tab
+        window.dispatchEvent(new Event("storage"));
+        return item;
       }
     },
   ];
@@ -39,5 +43,5 @@ function getSnapshot() {
 }
 
 function getServerSnapshot() {
-  return true;
+  return null;
 }
