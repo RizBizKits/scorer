@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Ball({
   over,
@@ -6,23 +6,29 @@ export default function Ball({
   showBallOptions,
   onUpdate,
   handleClick,
+  scoreInBall,
 }) {
   const [value, setValue] = useState();
   const OVERS = 16;
 
   const buttonHandler = (e) => {
-    setValue(e.target.innerText); // to pass the value contained inside the evenHandler (for e.g. "OUT") to setValue. This would result in "value" = OUT
-    console.log(e.target.innerText);
+    const val = e.target.innerText;
+    setValue(val); // to pass the value contained inside the evenHandler (for e.g. "OUT") to setValue. This would result in "value" = OUT
+    // console.log(val);
+    // if (val != "NB" || val != "W" || val != "OUT") {
+    //   overScore.push(val);
+    // }
     onUpdate({
       buttonValue: e.target.innerText,
       ballInOver: ballInOver,
     });
+    scoreInBall(val);
   };
 
   if (showBallOptions) {
     return (
       <>
-        <div className="ball-wrapper m-2  border-solid border-2 border-black rounded-lg px-2 py-2">
+        <div className="ball-wrapper m-2 border-solid border-2 border-black rounded-lg px-2 py-2">
           <div className="ball-wrapper-cell grid grid-cols-3 gap-1">
             <button
               onClick={buttonHandler}
@@ -107,7 +113,7 @@ export default function Ball({
   return (
     <div
       onClick={() => handleClick(ballInOver)} // ballInOver is the index
-      className="ball-wrapper m-2  border-solid border-2 border-black rounded-lg px-2 py-2"
+      className="ball-wrapper m-2 border-solid border-2 border-black rounded-lg px-2 py-2"
     >
       <div className="flex flex-row place-content-between">
         <p className="ball-count">{`${over}.${ballInOver + 1}`}</p>

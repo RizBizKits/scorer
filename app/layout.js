@@ -2,9 +2,9 @@ import "@/styles/globals.css";
 
 export default function RootLayout({ children }) {
   return (
-    <html>
+    <html className="m-0 p-0">
       <head />
-      <body>{children}</body>
+      <body className="h-screen w-screen">{children}</body>
     </html>
   );
 }
