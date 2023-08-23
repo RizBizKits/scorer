@@ -37,7 +37,7 @@ export default function Page() {
             better solution.
           </p>
           <p className="text-lg my-2">
-            <span className="font-bold">Scorerer</span> is what you see before
+            <span className="font-bold">Scorcerer</span> is what you see before
             you.
           </p>
           <p className="text-lg">
