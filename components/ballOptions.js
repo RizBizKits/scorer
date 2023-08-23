@@ -77,6 +77,20 @@ export default function BallOptions({ over, ballInOver }) {
           >
             OUT
           </button>
+          <button
+            onChange={buttonHandler}
+            className="rounded-lg border-slate-500 border-solid border-2  py-2"
+            disabled={setBall}
+          >
+            BYE
+          </button>
+          <button
+            onChange={buttonHandler}
+            className="rounded-lg border-slate-500 border-solid border-2  py-2"
+            disabled={setBall}
+          >
+            LEG BYE
+          </button>
         </div>
       )}
 

@@ -29,10 +29,10 @@ export default function Ball({
     return (
       <>
         <div className="ball-wrapper m-2 border-solid border-2 border-black rounded-lg px-2 py-2">
-          <div className="ball-wrapper-cell grid grid-cols-3 gap-1">
+          <div className="ball-wrapper-cell grid grid-cols-3 gap-1 place-items-center">
             <button
               onClick={buttonHandler}
-              className={`rounded-lg border-slate-500 border-solid border-2 py-2 ${
+              className={`w-11 rounded-full border-slate-500 border-solid border-2 py-2 ${
                 value ? "bg-gray-500 text-white" : ""
               } `}
             >
@@ -40,7 +40,7 @@ export default function Ball({
             </button>
             <button
               onClick={buttonHandler}
-              className={`rounded-lg border-slate-500 border-solid border-2 py-2 ${
+              className={`w-11 rounded-full border-slate-500 border-solid border-2 py-2 ${
                 value ? "bg-gray-500 text-white" : ""
               } `}
             >
@@ -48,7 +48,7 @@ export default function Ball({
             </button>
             <button
               onClick={buttonHandler}
-              className={`rounded-lg border-slate-500 border-solid border-2 py-2 ${
+              className={`w-11 rounded-full border-slate-500 border-solid border-2 py-2 ${
                 value ? "bg-gray-500 text-white" : ""
               } `}
             >
@@ -56,7 +56,7 @@ export default function Ball({
             </button>
             <button
               onClick={buttonHandler}
-              className={`rounded-lg border-slate-500 border-solid border-2 py-2 ${
+              className={`w-11 rounded-full border-slate-500 border-solid border-2 py-2 ${
                 value ? "bg-gray-500 text-white" : ""
               } `}
             >
@@ -64,7 +64,7 @@ export default function Ball({
             </button>
             <button
               onClick={buttonHandler}
-              className={`rounded-lg border-slate-500 border-solid border-2 py-2 ${
+              className={`w-11 rounded-full border-slate-500 border-solid border-2 py-2 ${
                 value ? "bg-gray-500 text-white" : ""
               } `}
             >
@@ -72,7 +72,7 @@ export default function Ball({
             </button>
             <button
               onClick={buttonHandler}
-              className={`rounded-lg border-slate-500 border-solid border-2 py-2 ${
+              className={`w-11 rounded-full border-slate-500 border-solid border-2 py-2 ${
                 value ? "bg-gray-500 text-white" : ""
               } `}
             >
@@ -80,7 +80,7 @@ export default function Ball({
             </button>
             <button
               onClick={buttonHandler}
-              className={`rounded-lg border-slate-500 border-solid border-2 py-2 ${
+              className={`w-11 rounded-full border-slate-500 border-solid border-2 py-2 ${
                 value ? "bg-gray-500 text-white" : ""
               } `}
             >
@@ -88,7 +88,7 @@ export default function Ball({
             </button>
             <button
               onClick={buttonHandler}
-              className={`rounded-lg border-slate-500 border-solid border-2 py-2 ${
+              className={`w-11 rounded-full border-slate-500 border-solid border-2 py-2 ${
                 value ? "bg-gray-500 text-white" : ""
               } `}
             >
@@ -96,11 +96,27 @@ export default function Ball({
             </button>
             <button
               onClick={buttonHandler}
-              className={`rounded-lg border-slate-500 border-solid border-2 py-2 ${
+              className={`w-11 rounded-full border-slate-500 border-solid border-2 py-2 ${
                 value ? "bg-gray-500 text-white" : ""
               } `}
             >
               OUT
+            </button>
+            <button
+              onClick={buttonHandler}
+              className={`w-11 rounded-full border-slate-500 border-solid border-2 py-2 ${
+                value ? "bg-gray-500 text-white" : ""
+              } `}
+            >
+              B
+            </button>
+            <button
+              onClick={buttonHandler}
+              className={`w-11 rounded-full border-slate-500 border-solid border-2 py-2 ${
+                value ? "bg-gray-500 text-white" : ""
+              } `}
+            >
+              LB
             </button>
           </div>
           <p className="ball-count text-center">
@@ -113,7 +129,7 @@ export default function Ball({
   return (
     <div
       onClick={() => handleClick(ballInOver)} // ballInOver is the index
-      className="ball-wrapper m-2 border-solid border-2 border-black rounded-lg px-2 py-2"
+      className="ball-wrapper my-3 mx-2 border-solid border-2 border-black rounded-lg px-4 py-4"
     >
       <div className="flex flex-row place-content-between">
         <p className="ball-count">{`${over}.${ballInOver + 1}`}</p>

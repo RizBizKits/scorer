@@ -1,148 +1,62 @@
 "use client";
 
-import useStorage from "@/utils/useStorage";
-import { useState } from "react";
-import Button from "@/components/button";
-import ToggleButton from "@/components/toggleButton";
-import UserBox from "@/components/userBox";
-import Ball from "@/components/ball";
-import Over from "@/components/over";
-import Ticker from "@/components/ticker";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 export default function Page() {
-  const OVERS = 16;
-  const [mD, sD] = useStorage();
-  const [accordianActive1, setaccordianActive1] = useState(false);
-  const [accordianActive2, setaccordianActive2] = useState(false);
-  // const [currentScoreInOver, setScoreInOver] = useState(0);
+  const router = useRouter();
 
-  // sD({teamA})
-
-  // {accordianActive ? "↑" : "↓"}
   return (
-    <div className="h-screen">
-      <p className="text-4xl my-4 max-w-screen-xl mx-2">Score101</p>
-      {mD ? (
-        <>
-          {/* <div className="max-w-screen-xl mx-auto">
-            <div className="mx-2">
-              <div className="mb-4">
-                <button
-                  onClick={() => {
-                    localStorage.clear();
-                    window.dispatchEvent(new Event("storage"));
-                  }}
-                  className="border-solid border-2 border-black rounded-lg px-4 py-2 my-2 mx-2"
-                >
-                  x
-                </button>
-                <p className="text-xl">Who is playing?</p>
-                <p>
-                  Start by entering details about the teams playing this match.
-                  Then, pick who has won the toss.
-                </p>
-              </div>
-              <UserBox title={"Team A"}></UserBox>
+    <div>
+      <div className="header flex flex-col w-full items-center my-4">
+        <img src="/logo-sm.svg" className="block logo" />
+      </div>
+      <div className="desc w-full flex flex-col items-center">
+        <div className="max-w-xl mx-4 mb-2">
+          <p className="text-4xl font-bold my-8  text-center">
+            So, cricket is a confusing sport.
+          </p>
+          <p className="text-lg">
+            As a kid, when watching cricket on TV, I was perplexed by many
+            things, like, &quot;who decided there are only 6 balls in an
+            over!?&quot;
+          </p>
+          <p className="text-lg my-2">
+            ...& let&apos;s not even talk about Tests.
+          </p>
+          {/* <p className="text-lg my-8 text-center">★</p> */}
+          <p className="text-lg my-2">
+            Fast-forward to some years later: I found myself attending an
+            amateur, club-cricket practice session. This led to a renewed
+            obsession with all-things-cricket, transforming my mindset from
+            spectator of this confusing sport into a newbie player.
+          </p>
+          {/* <p className="text-lg my-8 text-center">★</p> */}
+          <p className="text-lg my-2">
+            Eventually, perplexed by scores being meticulously recorded on
+            sheets of paper during matches, I searched and found missing a
+            better solution.
+          </p>
+          <p className="text-lg my-2">
+            <span className="font-bold">Scorerer</span> is what you see before
+            you.
+          </p>
+          <p className="text-lg">
+            {" "}
+            A quest to never lose track of who&apos;s winning, again.
+          </p>
 
-              <div className="flex justify-center my-1">
-                <p className="text-md">vs.</p>
-              </div>
-
-              <UserBox title={"Team B"}></UserBox>
-
-              <div className="flex flex-col justify-center my-8 text-lg">
-                <div className="flex flex-row justify-center mb-1">
-                  <select
-                    id="teams"
-                    name="teams"
-                    className="mr-2 border-solid border-2 border-black rounded-lg pr-4 py-1"
-                  >
-                    <option value="SelectTeamA">Team A</option>
-                    <option value="SelectTeamB">Team B</option>
-                  </select>
-                  <p className="self-center">won the toss</p>
-                </div>
-                <div className="flex flex-row justify-center">
-                  <p className="self-center">and have elected to</p>
-                  <select
-                    id="tossPick"
-                    name="tossPick"
-                    className="mx-2 border-solid border-2 border-black rounded-lg pr-4 py-1"
-                  >
-                    <option value="tossBat">Bat</option>
-                    <option value="tossBall">Ball</option>
-                  </select>{" "}
-                  <p className="self-center">first</p>
-                </div>
-              </div>
-            </div>
-          </div> */}
-          <div className="results-wrapper max-w-screen-xl mx-auto h-screen">
-            <div className="over-wrapper">
-              <p className="text-xl my-2 mx-2">
-                Cavaliers & Carrington CC Innings
-              </p>
-
-              <div className="flex flex-row snap-x snap-mandatory w-full overflow-x-auto relative">
-                {[...Array(OVERS).keys()].map((i) => (
-                  <div className="snap-center flex flex-col" key={i}>
-                    <div className="flex flex-row place-content-between mx-2">
-                      <p className="ball-count">
-                        Over {i} of {OVERS}
-                      </p>
-                      <p className="ball-count">Pair 1 of 4</p>
-                    </div>
-                    <div className="flex flex-col">
-                      <Over count={i} key={i}></Over>
-                    </div>
-                    <div className="flex flew-row justify-center items-center mx-2">
-                      <div>
-                        <div className="flex flex-row place-content-center gap-3">
-                          <p className="text-center text-md">This Over: 10</p>
-                          <p className="text-center text-md">This Pair: 17</p>
-                        </div>
-                        {/* <p className="text-center text-lg">Total: 230</p> */}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="py-2">
-                <p className="text-center text-lg">Total: 230</p>
-              </div>
-            </div>
-
-            {/* <div className="flex flew-row place-content-between items-center mx-2">
-              <button className="border-solid border-2 border-black rounded-lg px-4 py-2">
-                {" "}
-                ←{" "}
-              </button>
-              <div>
-                <p className="text-center text-md">Batting Pair 1 of 4</p>
-                <div className="flex flex-row place-content-center gap-3">
-                  <p className="text-center text-md">This Over: 10</p>
-                  <p className="text-center text-md">This Pair: 17</p>
-                </div>
-              </div>
-              <button className="border-solid border-2 border-black rounded-lg px-4 py-2">
-                →{" "}
-              </button>
-            </div> */}
-          </div>
-        </>
-      ) : (
-        <div>
-          <div className="my-2 mx-2">
-            <p>Welcome to your Scorer app</p>
+          <div className="flex flex-row items-center justify-center my-6">
+            <p className="text-md text-center mx-4">★</p>
             <button
-              onClick={() => sD("matchData")}
-              className="border-solid border-2 border-black rounded-lg px-2 py-2 my-2"
+              onClick={() => router.push("/play")}
+              className="text-white text-bold tracking-widest	 border-solid border-2 border-black rounded-lg px-12 py-2 my-2 bg-black"
             >
-              Start match
+              START
             </button>
+            <p className="text-md text-center mx-4">★</p>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

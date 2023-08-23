@@ -1,11 +1,12 @@
 import Ball from "./ball";
 import { useState } from "react";
 
-export default function Over({ count }) {
+export default function Over({ count, overScore }) {
   const TOTAL_BALLS_IN_OVER = 6;
   const [activeBall, setActiveBall] = useState(-1);
-  const [currentScoreInOver, setScoreInOver] = useState(0);
+  const [currentRunningScore, setRunningScore] = useState(0);
   const [scoreInOverHistory, setscoreInOverHistory] = useState([]);
+  let runningScore = 0;
 
   return (
     <div className="w-screen">
@@ -23,11 +24,20 @@ export default function Over({ count }) {
           }}
           scoreInBall={(e) => {
             setscoreInOverHistory([...scoreInOverHistory, e + ", "]);
+            if (e === "NB" || e === "W") {
+              runningScore = currentRunningScore + 2;
+              setRunningScore(runningScore);
+              overScore(runningScore);
+            }
             if (!(e === "NB" || e === "W" || e === "OUT")) {
-              setScoreInOver(currentScoreInOver + parseFloat(e));
+              runningScore = currentRunningScore + parseFloat(e);
+              setRunningScore(runningScore);
+              overScore(runningScore);
             }
             if (e === "OUT") {
-              setScoreInOver(currentScoreInOver - 5);
+              runningScore = currentRunningScore - 5;
+              setRunningScore(runningScore);
+              overScore(runningScore);
             }
           }}
         ></Ball>
