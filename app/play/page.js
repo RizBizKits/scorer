@@ -34,7 +34,7 @@ export default function Page() {
     <div>
       <div className="header flex flex-col my-4 items-center">
         <Link href="/">
-          <img src="/logo-sm.svg" className="block logo w-16 " />
+          <img src="/logo-sm.svg" className="block logo w-12 " />
         </Link>
       </div>
       {/* <p className="text-4xl my-4 max-w-screen-xl mx-2">SCORCERER</p> */}
@@ -95,7 +95,7 @@ export default function Page() {
           </div> */}
           <div className="results-wrapper max-w-screen-xl mx-auto h-[calc(100vh-80px)]">
             <div className="over-wrapper h-full flex flex-col">
-              <p className="text-xl my-2 mx-2">
+              <p className="text-md my-2 mx-2">
                 Cavaliers & Carrington CC Innings
               </p>
               <div className="flex flex-row snap-x snap-mandatory w-full overflow-x-auto relative grow">
@@ -140,35 +140,11 @@ export default function Page() {
                 ))}
               </div>{" "}
               <div className="py-2">
-                <p className="text-center text-lg">
+                <p className="text-center text-lg font-bold">
                   Total: {data.reduce((total, item) => total + item)}
                 </p>
               </div>
-              {/* <div className="flex">
-                <div className="py-2 items-end">
-                  <p className="text-center text-lg">
-                    Total: {data.reduce((total, item) => total + item)}
-                  </p>
-                </div>
-              </div> */}
             </div>
-
-            {/* <div className="flex flew-row place-content-between items-center mx-2">
-              <button className="border-solid border-2 border-black rounded-lg px-4 py-2">
-                {" "}
-                ←{" "}
-              </button>
-              <div>
-                <p className="text-center text-md">Batting Pair 1 of 4</p>
-                <div className="flex flex-row place-content-center gap-3">
-                  <p className="text-center text-md">This Over: 10</p>
-                  <p className="text-center text-md">This Pair: 17</p>
-                </div>
-              </div>
-              <button className="border-solid border-2 border-black rounded-lg px-4 py-2">
-                →{" "}
-              </button>
-            </div> */}
           </div>
         </>
       ) : (
